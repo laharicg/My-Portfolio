@@ -26,7 +26,8 @@ const skillsSection = {
   title: "Things i work with",
   subTitle: "CRAZY DEVELOPER LOOKING TO EXPLORE ALL ASPECTS OF PROGRAMMING",
   skills: [
-    emoji("⚡ Languages known: HTML,javascript and C++"),
+    emoji("⚡ Languages & Libraries known: HTML, Javascript, REACT, NodeJS."),
+    emoji("⚡ Databases known: MySQL, MongoDB, Cloud: Firebase, AWS(S3)"),
     emoji("⚡ Web 🌐 and Desktop 🖥️ Applications"),
   ],
 
@@ -75,6 +76,10 @@ const skillsSection = {
 const techStack = {
   viewSkillBars: true, //Set it to true to show Proficiency Section
   experience: [
+    {
+      Stack: "HTML & VanillaJS",
+      progressPercentage: "80%",
+    },
     {
       Stack: "ReactJS",
       progressPercentage: "74%",
@@ -154,8 +159,7 @@ const podcastSection = {
 
 const contactInfo = {
   title: emoji("Contact Me ☎️"),
-  subtitle:
-    "Discuss a project or just want to say hi? My Inbox is open for all.",
+  subtitle: "Discuss a project or just want to say hi? My Inbox is open.",
   number: "+91-786884808",
   email_address: "govada.lahari@gmail.com",
 };

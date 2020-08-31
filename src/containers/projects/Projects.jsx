@@ -11,79 +11,57 @@ export default function Projects() {
   );
   const FailedLoading = () => null;
   const renderLoader = () => <Loading />;
-  const [repo, setrepo] = useState([]);
+  const [repo, setrepo] = useState([
+    {
+      id: 1,
+      url: "https://github.com/laharicg/Drive-to-AWS-S3",
+      name: "Upload files: Drive-to-AWS-S3",
+      description:
+        "A drag & drop image uploader with AWS-S3 using technologies such as NodeJS, Express for back end, React for front-end,AWS-S3 for File Storage.",
+    },
+    {
+      id: 2,
+      url: "https://github.com/laharicg/google-clone",
+      name: "Google-clone",
+      description:
+        "A search engine made with the knowledge of Redux, React-router, Custom search API.Well-designed using CSS which represents the replica of google search engine.",
+    },
+    {
+      id: 3,
+      url: "https://github.com/laharicg/Tic-Tac-Typrescript",
+      name: "Tic-Tac-Toe Game",
+      description: "Two-player game coded with Typescript & styled by CSS",
+    },
+    {
+      id: 4,
+      url: "https://github.com/laharicg/Hanoi-Dom",
+      name: "Hanoi Towers Game",
+      description:
+        "Interesting disc game made use of DOM representation & modified with Javascript.",
+    },
+    {
+      id: 5,
+      url: "https://github.com/laharicg/Task-2-Swiggy",
+      name: "Swiggy-clone",
+      description: "Food delivery app UI with REACT & CSS.",
+    },
+    {
+      id: 6,
+      url: "https://github.com/laharicg/instagram-clone-react-state",
+      name: "Instagram-clone",
+      description:
+        "Auntenticated system based on Firebase and Frontend designed using REACT",
+    },
+  ]);
 
-  useEffect(() => {
-    getRepoData();
-  }, []);
-
-  function getRepoData() {
-    const client = new ApolloClient({
-      uri: "https://api.github.com/graphql",
-      request: (operation) => {
-        operation.setContext({
-          headers: {
-            authorization: `Bearer ${openSource.githubConvertedToken}`,
-          },
-        });
-      },
-    });
-
-    client
-      .query({
-        query: gql`
-        {
-        user(login: "${openSource.githubUserName}") {
-          pinnedItems(first: 6, types: [REPOSITORY]) {
-            totalCount
-            edges {
-              node {
-                ... on Repository {
-                  name
-                  description
-                  forkCount
-                  stargazers {
-                    totalCount
-                  }
-                  url
-                  id
-                  diskUsage
-                  primaryLanguage {
-                    name
-                    color
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-        `,
-      })
-      .then((result) => {
-        setrepoFunction(result.data.user.pinnedItems.edges);
-        console.log(result);
-      })
-      .catch(function (error) {
-        console.log(error);
-        setrepoFunction("Error");
-        console.log(
-          "Because of this Error, nothing is shown in place of Projects section. Projects section not configured"
-        );
-      });
-  }
-
-  function setrepoFunction(array) {
-    setrepo(array);
-  }
   if (!(typeof repo === "string" || repo instanceof String)) {
     return (
       <Suspense fallback={renderLoader()}>
         <div className="main" id="opensource">
           <h1 className="project-title">Open Source Projects</h1>
           <div className="repo-cards-div-main">
-            {repo.map((v, i) => {
-              return <GithubRepoCard repo={v} key={v.node.id} />;
+            {repo.map((reps) => {
+              return <GithubRepoCard repo={reps} key={reps.id} />;
             })}
           </div>
           <Button
