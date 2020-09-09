@@ -1,5 +1,6 @@
 ﻿import React from "react";
 import SocialMedia from "../../components/socialMedia/SocialMedia.jsx";
+//import { resumePdf } from "../../portfolio";
 import { greeting } from "../../portfolio";
 import { Fade } from "react-reveal";
 import emoji from "react-easy-emoji";
@@ -18,6 +19,15 @@ export default function Greeting() {
               </h1>
               <p className="greeting-text-p subTitle">{greeting.subTitle}</p>
               <SocialMedia />
+              <button className="button">
+                <a
+                  className="button"
+                  href="../../assets/file/My.pdf"
+                  download="My.pdf"
+                >
+                  Download Resume
+                </a>
+              </button>
             </div>
           </div>
           <div className="greeting-image-div">

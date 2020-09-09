@@ -20,6 +20,10 @@ const socialMediaLinks = {
   instagram: "https://www.instagram.com/wanderess_lahari/",
 };
 
+// const resumePdf = {
+//   download: "../assets/file/resume.pdf",
+// };
+
 // Your Skills Section
 
 const skillsSection = {
@@ -172,6 +176,7 @@ const twitterDetails = {
 export {
   greeting,
   socialMediaLinks,
+  //resumePdf,
   skillsSection,
   techStack,
   openSource,
